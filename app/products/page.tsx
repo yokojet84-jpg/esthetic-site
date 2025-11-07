@@ -1,6 +1,19 @@
 // app/products/page.tsx
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+// カードとグリッドの動き（パキパキ版）
+const gridVariants = {
+  animate: { transition: { staggerChildren: 0.05, delayChildren: 0.05 } },
+};
+
+const cardVariants = {
+  initial:  { opacity: 0, y: 14 },
+  animate:  { opacity: 1, y: 0, transition: { type: "spring", stiffness: 800000, damping: 1, mass: 0.1 } },
+  hover:    { y: -6, scale: 1.02, transition: { type: "spring", stiffness: 800000, damping: 1 } },
+  tap:      { scale: 0.99, transition: { type: "spring", stiffness: 800000, damping: 1 } },
+};
 
 type Product = {
   id: string;
@@ -23,17 +36,81 @@ const PRODUCTS: Product[] = [
     tag: "BEST",
   },
   {
-    id: "mask",
-    name: "モイスト フェイスマスク（5枚）",
-    description: "サロン帰りの透明感をおうちで。",
-    price: 1980,
-    img: "/products/mask.jpg",
-    href: "/shop",
-    tag: "SET",
+     id: "oil",
+    name: "ボタニカル ヘアオイル",
+    description: "軽い仕上がりとツヤ感が特長。",
+    price: 4180,
+    img: "/products/oil.jpg",
+    href: "/shop",      // 後で外部ショップURLに差し替え可
+    tag: "BEST",
   },
-];
+  {
+     id: "oil",
+    name: "ボタニカル ヘアオイル",
+    description: "軽い仕上がりとツヤ感が特長。",
+    price: 4180,
+    img: "/products/oil.jpg",
+    href: "/shop",      // 後で外部ショップURLに差し替え可
+    tag: "BEST",
+  },
+  {
+    id: "oil",
+    name: "ボタニカル ヘアオイル",
+    description: "軽い仕上がりとツヤ感が特長。",
+    price: 4180,
+    img: "/products/oil.jpg",
+    href: "/shop",      // 後で外部ショップURLに差し替え可
+    tag: "BEST",
+  },
+  {
+     id: "oil",
+    name: "ボタニカル ヘアオイル",
+    description: "軽い仕上がりとツヤ感が特長。",
+    price: 4180,
+    img: "/products/oil.jpg",
+    href: "/shop",      // 後で外部ショップURLに差し替え可
+    tag: "BEST",
+  }, 
+  {
+    id: "oil",
+    name: "ボタニカル ヘアオイル",
+    description: "軽い仕上がりとツヤ感が特長。",
+    price: 4180,
+    img: "/products/oil.jpg",
+    href: "/shop",      // 後で外部ショップURLに差し替え可
+    tag: "BEST",
+  },
+    {
+    id: "oil",
+    name: "ボタニカル ヘアオイル",
+    description: "軽い仕上がりとツヤ感が特長。",
+    price: 4180,
+    img: "/products/oil.jpg",
+    href: "/shop",      // 後で外部ショップURLに差し替え可
+    tag: "BEST",
+  },
+  {
+    id: "oil",
+    name: "ボタニカル ヘアオイル",
+    description: "軽い仕上がりとツヤ感が特長。",
+    price: 4180,
+    img: "/products/oil.jpg",
+    href: "/shop",      // 後で外部ショップURLに差し替え可
+    tag: "BEST",
+  },
+   {
+    id: "oil",
+    name: "ボタニカル ヘアオイル",
+    description: "軽い仕上がりとツヤ感が特長。",
+    price: 4180,
+    img: "/products/oil.jpg",
+    href: "/shop",      // 後で外部ショップURLに差し替え可
+    tag: "BEST",
+  },
+ ]; 
 
 export default function ProductsPage() {
+  
   return (
     <main className="px-6 md:px-12 py-12 bg-[var(--bg-main)] text-[var(--text-main)]">
       <section className="mx-auto max-w-6xl">
@@ -43,58 +120,47 @@ export default function ProductsPage() {
         <p className="mt-2 text-black/60">
           サロン厳選のヘアケア・フェイスケアアイテムをご紹介します。
         </p>
-
-        {/* カードグリッド */}
-        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-         {PRODUCTS.map((p) => (
-  <article
-  key={p.id}
-  className="hb-card rounded-3xl p-8 bg-white/90 backdrop-blur-sm border border-black/5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-300"
+    
+    {/* カードグリッド */}
+<motion.div
+  className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+  variants={gridVariants}
+  initial="initial"
+  animate="animate"
 >
-
+{PRODUCTS.map((p, i) => (
+  <motion.article
+    key={p.id}
+    variants={cardVariants}
+    whileHover="hover"
+    whileTap="tap"
+    className="hb-card will-change-transform"
+  >
     {/* 画像 */}
     <div className="relative aspect-[4/3] bg-neutral-50">
       <Image
         src={p.img}
         alt={p.name}
         fill
-        className="object-cover group-hover:scale-[1.01] transition"
-        sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-        priority
+        className="object-cover"
+        sizes="(min-width:1024px) 33vw, 100vw"
+        priority={i < 2}  // ✅ 上から2枚だけ priority を付ける
       />
-      {p.tag && <span className="absolute left-3 top-3 hb-badge">{p.tag}</span>}
+      {p.tag && (
+        <span className="absolute left-2 top-2">{p.tag}</span>
+      )}
     </div>
 
     {/* テキスト */}
-    {/* テキスト領域 */}
-<div className="p-5">
-  <h3 className="text-lg md:text-xl font-medium tracking-wide text-gray-900">
-    {p.name}
-  </h3>
-  <p className="mt-1 text-sm text-gray-500 leading-relaxed line-clamp-2">
-    {p.description}
-  </p>
-
-
-      <div className="mt-3 flex items-baseline justify-between">
-        <span className="hb-price">¥{p.price.toLocaleString()}</span>
-        <span className="text-xs">(税込)</span>
-      </div>
-
-      {/* CTAボタン */}
-      <Link href={p.href} target="_blank" rel="noopener noreferrer" className="hb-btn">
-        購入ページへ
-      </Link>
+    <div className="p-4">
+      <h3 className="font-medium text-lg">{p.name}</h3>
+      <p className="text-sm text-black/70">{p.description}</p>
     </div>
-         </article>
-      ))}
-    </div>
+  </motion.article>
+))}
 
-    <div className="mt-10 text-center text-xs text-black/50">
-      決済・配送は提携ショップ（takanoyuribs.shop）で行われます。
-    </div>
-  </section>
+</motion.div>
+</section>
 </main>
 );
 }
-
