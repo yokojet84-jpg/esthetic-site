@@ -19,13 +19,21 @@
   }
 }
 
+/* ==== Body (全体の背景 & 基本色) ===== */
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: #ffffff; /* ← 高級感ある純白に統一 */
+  color: #111111;
   font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.02em;
+  font-feature-settings: "palt"; /* 日本語の文字詰め綺麗に */
 }
-:root{
-  /* カラーパレット（黒は少し柔らかい#0A0A0A） */
+
+:root {
+  /* ===== カラーテーマ（高級感ある白×黒） ===== */
+  --bg-main: #ffffff;   /* 背景は純白 */
+  --text-main: #111111; /* 深い黒に近い文字色 */
+
+  /* 既存の色変数（必要なら残す） */
   --brand-bg: #0a0a0a;
   --ink: #0b0b0b;
   --muted: rgba(0,0,0,0.56);
@@ -34,7 +42,7 @@ body {
 
   /* アクセント（温かみのあるゴールド系） */
   --accent: #b08d57;
-  --accent-ink: #fff;
+  --accent-ink: #ffffff;
 
   /* 影とブラー */
   --shadow-lg: 0 10px 30px rgba(0,0,0,0.08);
@@ -109,13 +117,6 @@ h2,h3 { font-weight: 600; }
   --shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
-body {
-  background: var(--bg-main);
-  color: var(--text-main);
-  letter-spacing: 0.02em;
-  font-feature-settings: "palt";
-}
-
 /* カード質感 */
 .card {
   border-radius: 20px;
@@ -154,21 +155,20 @@ body {
 }
 /* =========== BRAND TOKENS =========== */
 :root{
-  --bg-main:#FAF9F6;        /* やわらかい白 */
-  --text-main:#111111;       /* 深い黒 */
-  --text-muted:#6B6B6B;
-  --gold:#BFA46F;            /* ゴールドベージュ */
-  --line:rgba(0,0,0,.08);
-  --shadow:0 10px 30px rgba(0,0,0,.10);
+  --bg-main: #ffffff;   /* 真っ白の背景 */
+  --text-main: #111111;
+  --text-muted: #6B6B6B;
+  --gold: #BFA46F;
+  --line: rgba(0,0,0,.08);
+  --shadow: 0 10px 30px rgba(0,0,0,.10);
   --radius:20px;
 }
 
+
+
 /* 背景にほのかなゴールドのベール */
 body{
-  background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(191,164,111,.06), transparent 60%),
-    radial-gradient(900px 500px at 90% -20%, rgba(191,164,111,.05), transparent 60%),
-    var(--bg-main);
+  background: #ffffff;
   color:var(--text-main);
   letter-spacing:.02em;
   font-feature-settings:"palt";
@@ -404,9 +404,9 @@ h1,h2,h3{
   /* カラー設計（深い墨/アイボリー/黒金） */
   --ink: #0c0f12;                /* 文字の主色（限りなく黒） */
   --ink-60: rgba(12,15,18,.60);
-  --bg-main: #f7f5f2;            /* アイボリー基調 */
+  --bg-main: #ffffff;            /* 真っ白 */
   --card: #ffffff;
-  --brand: #101418;              /* 深い黒に近い群青 */
+  --brand: #ffffff;              /* ← これを白に変更する！ */
   --brand-gold: #C8A74A;         /* 上品ゴールド */
   --brand-ring: rgba(200,167,74,.28);
   --shadow-1: 0 8px 30px rgba(0,0,0,.06);
@@ -415,11 +415,8 @@ h1,h2,h3{
 
 /* ページの土台をより“静かにリッチ”へ */
 body{
-  background:
-    radial-gradient(900px 500px at 90% 0%, rgba(0,0,0,.03), transparent 60%),
-    radial-gradient(800px 600px at -10% 10%, rgba(0,0,0,.04), transparent 50%),
-    var(--bg-main);
-  color: var(--ink);
+  background: #ffffff !important;
+  color: var(--text-main);
   letter-spacing: .01em; /* 微細な詰め */
 }
 
@@ -481,3 +478,51 @@ body{
   border-color: var(--brand-ring);
   box-shadow: 0 12px 28px rgba(0,0,0,.16);
 }
+/* ==== 暫定：背景の黒帯を強制的に消す ==== */
+body {
+  background: #ffffff !important;
+}
+
+header,
+footer,
+.header-fixed,
+.site-edge,
+.sidebar,
+#sidepanel,
+.fixed-panel,
+.aside,
+.nav-drawer {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}/* -----------------------
+   FORCIBLE PAGE BACKGROUND
+   負の余白やグラデを消して白背景に強制する
+   Paste this at the END of app/globals.css
+   ----------------------- */
+
+html, body, #__next {
+  background: #ffffff !important;
+  background-image: none !important;
+  background-repeat: no-repeat !important;
+  color: #111 !important;
+}
+
+/* main が白いカード背景を透明にしてしまうなら無効化 */
+main {
+  background: transparent !important;
+}
+
+/* 万が一、左右に固定要素がある場合は非表示（副作用少ないセレクタを先に試す） */
+body > .left, body > .right,
+.left-sidebar, .right-sidebar,
+.page-edge, .page-side {
+  display: none !important;
+}
+
+/* 全体の余白や幅がズレてるなら中央寄せ */
+section, .container, .site-wrap, #root {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
