@@ -10,9 +10,9 @@ const gridVariants = {
 
 const cardVariants = {
   initial:  { opacity: 0, y: 14 },
-  animate:  { opacity: 1, y: 0, transition: { type: "spring", stiffness: 800000, damping: 1, mass: 0.1 } },
-  hover:    { y: -6, scale: 1.02, transition: { type: "spring", stiffness: 800000, damping: 1 } },
-  tap:      { scale: 0.99, transition: { type: "spring", stiffness: 800000, damping: 1 } },
+  animate:  { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 1, mass: 0.1 } },
+  hover:    { y: -6, scale: 1.02, transition: { type: "spring", stiffness: 80, damping: 1 } },
+  tap:      { scale: 0.99, transition: { type: "spring", stiffness: 80, damping: 1 } },
 };
 
 type Product = {
@@ -57,7 +57,8 @@ export default function ProductsPage() {
       variants={cardVariants}
       whileHover="hover"
       whileTap="tap"
-      className="hb-card will-change-transform bg-white rounded-3xl shadow-md overflow-hidden transition hover:shadow-lg"
+      className="hb-card will-change-transform bg-white !rounded-none shadow-md transition hover:shadow-lg"
+
     >
       {/* 画像 */}
       <div className="relative aspect-[4/3] bg-white flex items-center justify-center">
@@ -70,7 +71,7 @@ export default function ProductsPage() {
           priority={i < 2}
         />
         {p.tag && (
-          <span className="absolute left-2 top-2 bg-white/80 backdrop-blur-sm text-xs px-2 py-0.5 rounded-md">
+          <span className="absolute left-2 top-2 bg-white/80 backdrop-blur-sm text-xs px-2 py-0.5 rounded-none">
             {p.tag}
           </span>
         )}
@@ -84,14 +85,14 @@ export default function ProductsPage() {
         {/* 価格 + ボタン */}
         <div className="mt-4 flex items-center justify-between">
           <div className="text-2xl font-bold leading-none">¥{p.price.toLocaleString("ja-JP")}</div>
-          <Link
-            href={p.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block ml-4 px-5 py-2 rounded-full bg-black text-white text-sm shadow-lg hover:opacity-95 transition"
-          >
-            購入ページへ
-          </Link>
+        <Link
+  href={p.href}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block ml-4 px-5 py-2 rounded-full bg-black text-white text-sm shadow-lg hover:opacity-95 transition"
+>
+  購入ページへ
+</Link>
         </div>
 
         <div className="text-xs text-neutral-500 mt-1">(税込)</div>

@@ -71,7 +71,7 @@ h2,h3 { font-weight: 600; }
 .card{
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: ４px;
   box-shadow: var(--shadow-sm);
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
@@ -525,4 +525,6 @@ section, .container, .site-wrap, #root {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+
 
