@@ -26,8 +26,8 @@ type Product = {
 };
 
 const PRODUCTS: Product[] = [
-  { id: "oil-1", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/oil.jpg", href: "/shop", tag: "BEST" },
-  { id: "oil-2", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/oil.jpg", href: "/shop", tag: "BEST" },
+ { id: "oil-1", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/dior1.jpg", href: "/shop", tag: "BEST" },
+  { id: "oil-2", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/mask.jpg", href: "/shop", tag: "BEST" },
   { id: "oil-3", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/oil.jpg", href: "/shop", tag: "BEST" },
   { id: "oil-4", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/oil.jpg", href: "/shop", tag: "BEST" },
   { id: "oil-5", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/oil.jpg", href: "/shop", tag: "BEST" },
