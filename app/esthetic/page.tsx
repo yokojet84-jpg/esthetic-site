@@ -96,40 +96,53 @@ const Header = () => (
     </div>
   </header>
 );
-
 const Hero = () => (
   <section>
-    <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 className="text-3xl md:text-5xl leading-tight">
-          肌印象を底上げする、<br />プライベートエステ体験
-        </h1>
-        <p className="mt-5 text-[15px] leading-7 text-black/70">
-          毛穴・むくみ・フェイスラインに、やさしく確かな一手を。初回限定プランをご用意しています。
-        </p>
-        <div className="mt-8 flex gap-3">
-          <a href="#menu" className="rounded-full bg-black text-white px-6 py-3 text-sm">メニューを見る</a>
-          <a
-            href="#reserve"
-            className="rounded-full border px-6 py-3 text-sm hover:text-white transition"
-            style={{ borderColor: "#C4B08E" }}
-          >
-            空き枠を確認
-          </a>
-        </div>
-        <div className="mt-8 grid grid-cols-3 gap-4 text-center">
-          <Stat label="累計施術" value="3,200+" />
-          <Stat label="継続率" value="82%" />
-          <Stat label="レビュー" value="★4.8" />
-        </div>
+    {/* 画像 */}
+    <div className="w-full py-0">
+      <div className="relative h-[480px] md:h-[680px] overflow-hidden">
+        <Image
+          src="/hero.jpg"
+          alt="Hero"
+          fill
+          className="object-cover object-top"
+          priority
+        />
       </div>
-      <div className="relative h-[380px] md:h-[520px] rounded-3xl overflow-hidden shadow">
-        <Image src="/placeholder/hero.jpg" alt="Hero" fill className="object-cover" priority />
-        <div className="absolute inset-0 ring-1 ring-black/5 rounded-3xl pointer-events-none" />
+    </div>
+
+    {/* テキストブロック */}
+    <div className="mx-auto max-w-6xl px-4 py-12 md:py-20">
+      <h1 className="text-3xl md:text-5xl leading-tight">
+        浸透の新次元芯から満たす、髪の輝き<br />秘められた泡が輝きを生む
+      </h1>
+
+      <p className="mt-5 text-[15px] leading-7 text-black/70">
+        見違える髪を、頭皮の奥から　あなたの夜に星降る夜を　初回限定プランをご用意しています。
+      </p>
+
+      <div className="mt-8 flex gap-3">
+        <a
+          href="#menu"
+          className="rounded-full bg-black text-white px-6 py-3 text-sm"
+        >
+          メニューを見る
+        </a>
+
+        <a
+          href="#reserve"
+          className="rounded-full border px-6 py-3 text-sm hover:text-white transition"
+          style={{ borderColor: "#C4B08E" }}
+        >
+          空き枠を確認
+        </a>
       </div>
     </div>
   </section>
 );
+
+
+
 
 const Stat = ({ label, value }: { label: string; value: string }) => (
   <div className="bg-white rounded-2xl py-5 shadow">

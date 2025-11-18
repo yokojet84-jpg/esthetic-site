@@ -26,15 +26,15 @@ type Product = {
 };
 
 const PRODUCTS: Product[] = [
- { id: "oil-1", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/dior1.jpg", href: "/shop", tag: "BEST" },
-  { id: "oil-2", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/mask.jpg", href: "/shop", tag: "BEST" },
-  { id: "oil-3", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/oil.jpg", href: "/shop", tag: "BEST" },
-  { id: "oil-4", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/oil.jpg", href: "/shop", tag: "BEST" },
-  { id: "oil-5", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/oil.jpg", href: "/shop", tag: "BEST" },
-  { id: "oil-6", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/oil.jpg", href: "/shop", tag: "BEST" },
-  { id: "oil-7", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/oil.jpg", href: "/shop", tag: "BEST" },
-  { id: "oil-8", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/oil.jpg", href: "/shop", tag: "BEST" },
-  { id: "oil-9", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/oil.jpg", href: "/shop", tag: "BEST" },
+ { id: "oil-1", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/flowergold.jpg", href: "/shop", tag: "BEST" },
+  { id: "oil-2", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/fiowerwhite2.jpg", href: "/shop", tag: "BEST" },
+  { id: "oil-3", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/bodycream3.jpg", href: "/shop", tag: "BEST" },
+  { id: "oil-4", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/2colorgreen4.jpg", href: "/shop", tag: "BEST" },
+  { id: "oil-5", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/brown5.jpg", href: "/shop", tag: "BEST" },
+  { id: "oil-6", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/bigbrown6.jpg", href: "/shop", tag: "BEST" },
+  { id: "oil-7", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/goldperfume7.jpg", href: "/shop", tag: "BEST" },
+  { id: "oil-8", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/graylotion8.jpg", href: "/shop", tag: "BEST" },
+  { id: "oil-9", name: "ボタニカル ヘアオイル", description: "軽い仕上がりとツヤ感が特長。", price: 4180, img: "/products/yeiiowserum9.jpg", href: "/shop", tag: "BEST" },
 ];
 
 export default function ProductsPage() {
@@ -57,7 +57,7 @@ export default function ProductsPage() {
       variants={cardVariants}
       whileHover="hover"
       whileTap="tap"
-      className="hb-card will-change-transform bg-white !rounded-none shadow-md transition hover:shadow-lg"
+      className="hb-card will-change-transform bg-white !rounded-none shadow-md transition hover:shadow-lgflex flex-col h-full"
 
     >
       {/* 画像 */}
@@ -65,8 +65,9 @@ export default function ProductsPage() {
         <Image
           src={p.img}
           alt={p.name}
-          fill
-          className="object-contain"
+           width={500}
+ 　　　　　 height={500}
+          className="object-cover"
           sizes="(min-width:1024px) 33vw, 100vw"
           priority={i < 2}
         />
