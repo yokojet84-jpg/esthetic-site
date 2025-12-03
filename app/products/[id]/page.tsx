@@ -10,7 +10,8 @@ type Props = {
 };
 
 // 仮の詳細データ（必要に応じて増やせる）
-const PRODUCT_DETAILS: Record<
+
+  const PRODUCT_DETAILS: Record<
   string,
   {
     name: string;
@@ -20,18 +21,116 @@ const PRODUCT_DETAILS: Record<
     sizes: { label: string; volume: string }[];
   }
 > = {
-  "1": {
-    name: "ボタニカル ヘアオイル",
-    price: "¥3,960",
-    subtitle: "ライトフィニッシュオイル 90ml",
-    images: ["/oil.jpg", "/file.jpg", "/face.jpg", "/globe.svg", "/window.svg"],
+     "1": {
+    name: "Ninki Velvet",
+    price: "¥3,520",
+    subtitle: "ダメージヘアをやさしく補修",
+    images: [
+      "/products/face.jpg",
+      "/products/face2.jpg",
+      "/products/face3.jpg",
+    ],
     sizes: [
-      { label: "30ml", volume: "30ml" },
-      { label: "50ml", volume: "50ml" },
       { label: "90ml", volume: "90ml" },
-      { label: "リフィル", volume: "REFILL" },
     ],
   },
+    "２": {
+    name: "Ninki Velvet",
+    price: "¥3,520",
+    subtitle: "ダメージヘアをやさしく補修",
+    images: [
+      "/products/face.jpg",
+      "/products/face2.jpg",
+      "/products/face3.jpg",
+    ],
+    sizes: [
+      { label: "90ml", volume: "90ml" },
+    ],
+  },
+  "３": {
+    name: "Ninki Velvet",
+    price: "¥3,520",
+    subtitle: "ダメージヘアをやさしく補修",
+    images: [
+      "/products/face.jpg",
+      "/products/face2.jpg",
+      "/products/face3.jpg",
+    ],
+    sizes: [
+      { label: "90ml", volume: "90ml" },
+    ],
+  },
+ "４": {
+    name: "Ninki Velvet",
+    price: "¥3,520",
+    subtitle: "ダメージヘアをやさしく補修",
+    images: [
+      "/products/face.jpg",
+      "/products/face2.jpg",
+      "/products/face3.jpg",
+    ],
+    sizes: [
+    
+      { label: "90ml", volume: "90ml" },
+    ],
+  },
+ "５": {
+    name: "Ninki Velvet",
+    price: "¥3,520",
+    subtitle: "ダメージヘアをやさしく補修",
+    images: [
+      "/products/face.jpg",
+      "/products/face2.jpg",
+      "/products/face3.jpg",
+    ],
+    sizes: [
+    
+      { label: "90ml", volume: "90ml" },
+    ],
+  },
+   "６": {
+    name: "Ninki Velvet",
+    price: "¥3,520",
+    subtitle: "ダメージヘアをやさしく補修",
+    images: [
+      "/products/face.jpg",
+      "/products/face2.jpg",
+      "/products/face3.jpg",
+    ],
+    sizes: [
+   
+      { label: "90ml", volume: "90ml" },
+    ],
+  },
+  "７": {
+    name: "Ninki Velvet",
+    price: "¥3,520",
+    subtitle: "ダメージヘアをやさしく補修",
+    images: [
+      "/products/face.jpg",
+      "/products/face2.jpg",
+      "/products/face3.jpg",
+    ],
+    sizes: [
+     
+      { label: "90ml", volume: "90ml" },
+    ],
+  },
+  "８": {
+    name: "Ninki Velvet",
+    price: "¥3,520",
+    subtitle: "ダメージヘアをやさしく補修",
+    images: [
+      "/products/face.jpg",
+      "/products/face2.jpg",
+      "/products/face3.jpg",
+    ],
+    sizes: [
+     
+      { label: "90ml", volume: "90ml" },
+    ],
+  },
+ 
 };
 
 export default function ProductPage({ params }: Props) {

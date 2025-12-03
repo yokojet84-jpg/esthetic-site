@@ -119,37 +119,39 @@ export default function Home() {
         </div>
       </section>
 
-        {/* ===== 商品ラインナップ（通常購入） ===== */}
-      <section id="products" className="px-10 pt-20 pb-16">
+      {/* ===== 商品ラインナップ（通常購入） ===== */}
+      <section id="products" className="px-10 pt-20 pb-24">
         <h2 className="text-xl font-light tracking-[0.25em] mb-12">
           Lineup
         </h2>
 
         {/* 通常購入 4列 */}
-        <div className="w-full grid grid-cols-4 gap-8 mb-24">
+        <div className="w-full grid grid-cols-4 gap-8 mb-10">
           {REGULAR_PRODUCTS.map((p) => (
             <Link
               key={p.id}
               href={`/products/${p.id}`}
-              className="block border border-neutral-200"
+              className="group block border border-neutral-200/80 bg-white hover:border-neutral-900/50 transition"
             >
-              <div className="aspect-[3/4] w-full h-full relative">
+              <div className="aspect-[3/4] w-full overflow-hidden">
                 <img
                   src={p.image}
                   alt={p.name}
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>
 
               <div className="p-6">
-                <div className="text-[11px] tracking-[0.25em] text-neutral-400 mb-1">
+                <div className="text-[11px] tracking-[0.25em] text-neutral-400 mb-2">
                   {p.tag}
                 </div>
-                <div className="font-semibold text-neutral-900">{p.name}</div>
-                <div className="text-sm text-neutral-500 mt-1">
+                <div className="font-medium text-[15px] tracking-[0.06em] text-neutral-900 mb-1">
+                  {p.name}
+                </div>
+                <div className="text-sm text-neutral-500 leading-relaxed">
                   {p.description}
                 </div>
-                <div className="mt-4 font-medium text-neutral-900">
+                <div className="mt-5 text-[13px] font-medium tracking-[0.18em] text-neutral-900">
                   {p.price}
                 </div>
               </div>
@@ -159,7 +161,7 @@ export default function Home() {
       </section>
 
       {/* ===== サブスク ラインナップ ===== */}
-      <section id="subscription" className="px-10 pb-24">
+      <section id="subscription" className="px-10 pt-24 pb-40">
         <h3 className="text-xl font-light tracking-[0.25em] mb-12">
           Subscription Lineup
         </h3>
@@ -169,25 +171,27 @@ export default function Home() {
             <Link
               key={p.id}
               href={`/products/${p.id}`}
-              className="block border border-neutral-200"
+              className="group block border border-neutral-200/80 bg-white hover:border-neutral-900/50 transition"
             >
-              <div className="aspect-[3/4] w-full h-full relative">
+              <div className="aspect-[3/4] w-full overflow-hidden">
                 <img
                   src={p.image}
                   alt={p.name}
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>
 
               <div className="p-6">
-                <div className="text-[11px] tracking-[0.25em] text-neutral-400 mb-1">
+                <div className="text-[11px] tracking-[0.25em] text-neutral-400 mb-2">
                   {p.tag}
                 </div>
-                <div className="font-semibold text-neutral-900">{p.name}</div>
-                <div className="text-sm text-neutral-500 mt-1">
+                <div className="font-medium text-[15px] tracking-[0.06em] text-neutral-900 mb-1">
+                  {p.name}
+                </div>
+                <div className="text-sm text-neutral-500 leading-relaxed">
                   {p.description}
                 </div>
-                <div className="mt-4 font-medium text-neutral-900">
+                <div className="mt-5 text-[13px] font-medium tracking-[0.18em] text-neutral-900">
                   {p.price}
                 </div>
               </div>
@@ -198,4 +202,3 @@ export default function Home() {
     </main>
   );
 }
-
