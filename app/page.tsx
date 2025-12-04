@@ -78,7 +78,8 @@ const SUBSCRIPTION_PRODUCTS = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-neutral-900">
+   <main className="bg-white text-neutral-900 pb-24 md:pb-32">
+
       {/* ===== ヒーローセクション ===== */}
       <section className="relative w-full h-[75vh] md:h-[85vh] overflow-hidden border-b border-neutral-100">
         {/* 背景画像 */}
@@ -159,7 +160,8 @@ export default function Home() {
       </section>
 
       {/* ===== サブスク ラインナップ ===== */}
-      <section id="subscription" className="px-10 pb-24">
+    　<section id="products" className="px-10 pt-20 pb-16">
+
         <h3 className="text-xl font-light tracking-[0.25em] mb-12">
           Subscription Lineup
         </h3>
