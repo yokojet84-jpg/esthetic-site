@@ -3,9 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-
-
-// 通常ラインナップ（画像つき）
 const REGULAR_PRODUCTS = [
   {
     id: 1,
@@ -78,129 +75,131 @@ const SUBSCRIPTION_PRODUCTS = [
 
 export default function Home() {
   return (
-   <main className="bg-white text-neutral-900 pb-24 md:pb-32">
+    <main className="bg-white text-neutral-900">
+      {/* 全体の「縦リズム」をここで管理 */}
+      <div className="space-y-24 md:space-y-32">
+        {/* ========= HERO（動画） ========= */}
+        <section className="relative w-full h-[55vh] md:h-[60vh] overflow-hidden border-b border-neutral-100">
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            src="/products/hero22.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          <div className="absolute inset-0 bg-black/20" />
 
-      {/* ===== ヒーローセクション ===== */}
-      <section className="relative w-full h-[75vh] md:h-[85vh] overflow-hidden border-b border-neutral-100">
-        {/* 背景画像 */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/products/dresser1.jpg')" }}
-        />
+          <div className="relative z-10 max-w-6xl mx-auto h-full flex items-center px-8 md:px-10">
+            <div className="max-w-xl">
+              <p className="text-xs tracking-[0.35em] text-neutral-200 mb-4">
+                HAIR CARE COLLECTION
+              </p>
+              <h1 className="text-3xl md:text-4xl font-light leading-relaxed text-white mb-6">
+                {/* キャッチコピー入れるならここ */}
+              </h1>
+              <p className="text-sm text-neutral-200 mb-8">
+                {/* サブコピー入れるならここ */}
+              </p>
 
-        {/* テキストブロック */}
-        <div className="relative z-10 max-w-6xl mx-auto h-full flex items-center px-8 md:px-10">
-          <div className="max-w-xl">
-            <p className="text-xs tracking-[0.35em] text-neutral-500 mb-4">
-              HAIR CARE COLLECTION
-            </p>
-            <h1 className="text-3xl md:text-4xl font-light leading-relaxed mb-6">
-              深層部から、ケアする贅沢を。
-              <br />
-              ノイズのないツヤと手触りを、あなたの日常に。
-            </h1>
-            <p className="text-sm text-neutral-500 mb-8">
-              最小限の成分で、最大限の質感へ。ESTHÉTIQUE が提案するヘアケアライン。
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="#products"
-                className="px-6 py-3 text-sm border border-neutral-900 rounded-full tracking-[0.25em] hover:bg-neutral-900 hover:text-white transition"
-              >
-                VIEW PRODUCTS
-              </Link>
-              <Link
-                href="#subscription"
-                className="px-6 py-3 text-sm border border-neutral-300 rounded-full tracking-[0.25em] text-neutral-500 hover:border-neutral-900 hover:text-neutral-900 transition"
-              >
-                SUBSCRIPTION
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="#products"
+                  className="px-6 py-3 text-sm border border-white/80 text-white rounded-full tracking-[0.25em] hover:bg-white hover:text-neutral-900 transition"
+                >
+                  VIEW PRODUCTS
+                </Link>
+                <Link
+                  href="#subscription"
+                  className="px-6 py-3 text-sm border border-white/40 text-white/80 rounded-full tracking-[0.25em] hover:border-white hover:text-white transition"
+                >
+                  SUBSCRIPTION
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ===== 商品ラインナップ（通常購入） ===== */}
-      <section id="products" className="px-10 pt-20 pb-24">
-        <h2 className="text-xl font-light tracking-[0.25em] mb-12">
-          Lineup
-        </h2>
+        {/* ========= Lineup ========= */}
+        <section id="products" className="px-10">
+          <h2 className="text-3xl md:text-4xl font-semibold text-left mb-12 md:mb-14">
+            Lineup
+          </h2>
 
-        {/* 通常購入 4列 */}
-        <div className="w-full grid grid-cols-4 gap-8 mb-10">
-          {REGULAR_PRODUCTS.map((p) => (
-            <Link
-              key={p.id}
-              href={`/products/${p.id}`}
-              className="group block border border-neutral-200/80 bg-white hover:border-neutral-900/50 transition"
-            >
-              <div className="aspect-[3/4] w-full overflow-hidden">
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            {REGULAR_PRODUCTS.map((p) => (
+              <Link
+                key={p.id}
+                href={`/products/${p.id}`}
+                className="group block border border-neutral-200 bg-white hover:border-neutral-900/50 transition"
+              >
+                <div className="aspect-[3/4] w-full overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                </div>
 
-              <div className="p-6">
-                <div className="text-[11px] tracking-[0.25em] text-neutral-400 mb-2">
-                  {p.tag}
+                <div className="p-6">
+                  <div className="text-[11px] tracking-[0.25em] text-neutral-400 mb-2">
+                    {p.tag}
+                  </div>
+                  <div className="font-medium text-[15px] tracking-[0.06em] text-neutral-900 mb-1">
+                    {p.name}
+                  </div>
+                  <div className="text-sm text-neutral-500 leading-relaxed">
+                    {p.description}
+                  </div>
+                  <div className="mt-5 text-[13px] font-medium tracking-[0.18em] text-neutral-900">
+                    {p.price}
+                  </div>
                 </div>
-                <div className="font-medium text-[15px] tracking-[0.06em] text-neutral-900 mb-1">
-                  {p.name}
-                </div>
-                <div className="text-sm text-neutral-500 leading-relaxed">
-                  {p.description}
-                </div>
-                <div className="mt-5 text-[13px] font-medium tracking-[0.18em] text-neutral-900">
-                  {p.price}
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-      {/* ===== サブスク ラインナップ ===== */}
-      <section id="subscription" className="px-10 pt-24 pb-40">
-        <h3 className="text-xl font-light tracking-[0.25em] mb-12">
-          Subscription Lineup
-        </h3>
+        {/* ========= Subscription Lineup ========= */}
+        <section id="subscription" className="px-10 pb-32">
+          <h3 className="text-2xl md:text-3xl font-semibold text-left mb-12 md:mb-14">
+            Subscription Lineup
+          </h3>
 
-        <div className="w-full grid grid-cols-4 gap-8">
-          {SUBSCRIPTION_PRODUCTS.map((p) => (
-            <Link
-              key={p.id}
-              href={`/products/${p.id}`}
-              className="group block border border-neutral-200/80 bg-white hover:border-neutral-900/50 transition"
-            >
-              <div className="aspect-[3/4] w-full overflow-hidden">
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            {SUBSCRIPTION_PRODUCTS.map((p) => (
+              <Link
+                key={p.id}
+                href={`/products/${p.id}`}
+                className="group block border border-neutral-200 bg-white hover:border-neutral-900/50 transition"
+              >
+                <div className="aspect-[3/4] w-full overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                </div>
 
-              <div className="p-6">
-                <div className="text-[11px] tracking-[0.25em] text-neutral-400 mb-2">
-                  {p.tag}
+                <div className="p-6">
+                  <div className="text-[11px] tracking-[0.25em] text-neutral-400 mb-2">
+                    {p.tag}
+                  </div>
+                  <div className="font-medium text-[15px] tracking-[0.06em] text-neutral-900 mb-1">
+                    {p.name}
+                  </div>
+                  <div className="text-sm text-neutral-500 leading-relaxed">
+                    {p.description}
+                  </div>
+                  <div className="mt-5 text-[13px] font-medium tracking-[0.18em] text-neutral-900">
+                    {p.price}
+                  </div>
                 </div>
-                <div className="font-medium text-[15px] tracking-[0.06em] text-neutral-900 mb-1">
-                  {p.name}
-                </div>
-                <div className="text-sm text-neutral-500 leading-relaxed">
-                  {p.description}
-                </div>
-                <div className="mt-5 text-[13px] font-medium tracking-[0.18em] text-neutral-900">
-                  {p.price}
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
+              </Link>
+            ))}
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
